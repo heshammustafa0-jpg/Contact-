@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --montessori-green: #1a5c38;
+  --montessori-green-light: #2d8a5c;
+  --montessori-gold: #c9a227;
+  --montessori-cream: #fdf8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", "Arial", sans-serif;
+  direction: rtl;
+  background-color: #f8f7f4;
+}
+
+.font-cairo {
+  font-family: "Cairo", "Arial", sans-serif;
+}
+
+/* Report-specific styles */
+.report-content h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--montessori-green);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--montessori-gold);
+}
+
+.report-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--montessori-green);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.report-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--montessori-green-light);
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.report-content p {
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.report-content li {
+  color: #374151;
+  line-height: 1.8;
+}
+
+.report-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.report-content th {
+  background-color: var(--montessori-green);
+  color: white;
+  padding: 0.6rem 0.75rem;
+  text-align: right;
+  font-weight: 600;
+  border: 1px solid #ccc;
+}
+
+.report-content td {
+  padding: 0.5rem 0.75rem;
+  text-align: right;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.report-content tr:nth-child(even) {
+  background-color: var(--montessori-cream);
+}
+
+.report-content tr:hover {
+  background-color: #fef3c7;
+}
+
+.report-content hr {
+  border-color: var(--montessori-gold);
+  border-top-width: 2px;
+  margin: 1.5rem 0;
+}
+
+.report-content blockquote {
+  border-right: 4px solid var(--montessori-gold);
+  background-color: #fffbeb;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: #5c4a3d;
+  font-style: italic;
+}
+
+.report-content strong {
+  color: var(--montessori-green);
+  font-weight: 700;
+}
+
+/* Score badges */
+.score-badge {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.score-high {
+  background-color: #dcfce7;
+  color: #166534;
+}
+.score-medium {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+.score-low {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    font-size: 12pt;
+  }
+
+  .report-content {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .report-content table {
+    page-break-inside: avoid;
+  }
+
+  .report-content h1,
+  .report-content h2 {
+    page-break-after: avoid;
+  }
+
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--montessori-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--montessori-green-light);
+}
